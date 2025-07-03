@@ -1,0 +1,104 @@
+// =============================
+// LAYOUT: Grid, Container, Utilities
+// =============================
+
+// -----------------------------
+// Container
+// -----------------------------
+// centers content with max-width per breakpoint
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: @space-md;
+  padding-left: @space-md;
+
+  .respond-to(sm) {
+    max-width: @bp-sm;
+  }
+  .respond-to(md) {
+    max-width: @bp-md;
+  }
+  .respond-to(lg) {
+    max-width: @bp-lg;
+  }
+  .respond-to(xl) {
+    max-width: @bp-xl;
+  }
+}
+
+// -----------------------------
+// Grid System
+// -----------------------------
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -@space-sm;
+  margin-left: -@space-sm;
+}
+
+.col {
+  padding-right: @space-sm;
+  padding-left: @space-sm;
+  flex: 1 1 0%;
+
+  // Width utilities: .col-<n> where <n> is 1-12
+  .col-(@n) when (@n >= 1) and (@n <= 12) {
+    width: percentage(@n / 12);
+  }
+  // Responsive columns
+  .respond-to(sm) {
+    .col-sm-(@n) when (@n >=1) and (@n <=12) {
+      width: percentage(@n / 12);
+    }
+  }
+  .respond-to(md) {
+    .col-md-(@n) when (@n >=1) and (@n <=12) {
+      width: percentage(@n / 12);
+    }
+  }
+  .respond-to(lg) {
+    .col-lg-(@n) when (@n >=1) and (@n <=12) {
+      width: percentage(@n / 12);
+    }
+  }
+}
+
+// Usage:
+// <div class="container">
+//   <div class="row">
+//     <div class="col col-6 col-md-4">...</div>
+//     <div class="col col-6 col-md-8">...</div>
+//   </div>
+// </div>
+
+// -----------------------------
+// Flex Utilities
+// -----------------------------
+.flex {
+  display: flex;
+  &.items-center { align-items: center; }
+  &.justify-center { justify-content: center; }
+  &.justify-between { justify-content: space-between; }
+  &.wrap { flex-wrap: wrap; }
+}
+
+// -----------------------------
+// Utility Classes
+// -----------------------------
+.clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.visible-sm  { display: none; .respond-to(sm) { display: block; } }
+.visible-md  { display: none; .respond-to(md) { display: block; } }
+.visible-lg  { display: none; .respond-to(lg) { display: block; } }
+.hidden-sm   { .respond-to(sm) { display: none; } }
+.hidden-md   { .respond-to(md) { display: none; } }
+.hidden-lg   { .respond-to(lg) { display: none; } }
+
+// End of layout.less

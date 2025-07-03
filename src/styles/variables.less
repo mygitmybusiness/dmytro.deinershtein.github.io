@@ -1,0 +1,100 @@
+// =============================
+// VARIABLES
+// =============================
+
+// -----------------------------
+// Breakpoints
+// -----------------------------
+// mobile-first sizes
+@bp-xs: 320px; // extra small (phones)
+@bp-sm: 576px; // small (landscape phones)
+@bp-md: 768px; // medium (tablets)
+@bp-lg: 992px; // large (desktops)
+@bp-xl: 1200px; // extra large (large desktops)
+
+// media query mixin
+.respond-to(@breakpoint) when (@breakpoint =xs) {
+    @media (min-width: @bp-xs) {}
+}
+
+.respond-to(@breakpoint) when (@breakpoint =sm) {
+    @media (min-width: @bp-sm) {}
+}
+
+.respond-to(@breakpoint) when (@breakpoint =md) {
+    @media (min-width: @bp-md) {}
+}
+
+.respond-to(@breakpoint) when (@breakpoint =lg) {
+    @media (min-width: @bp-lg) {}
+}
+
+.respond-to(@breakpoint) when (@breakpoint =xl) {
+    @media (min-width: @bp-xl) {}
+}
+
+// -----------------------------
+// Colors
+// -----------------------------
+@color-primary: #000;
+@color-secondary: #99dbff;
+@color-accent: #e74c3c;
+@color-background: #f5f5f5;
+@color-text: #333333;
+@color-light: #ffffff;
+@color-dark: #222222;
+
+// semantic
+@color-success: @color-secondary;
+@color-error: @color-accent;
+@color-warning: #f39c12;
+@color-info: #2980b9;
+
+// -----------------------------
+// Typography
+// -----------------------------
+@font-base: 'Roboto', sans-serif;
+@font-heading: 'Montserrat', sans-serif;
+@font-size-xs: 0.75rem;
+@font-size-sm: 0.875rem;
+@font-size-md: 1rem; // base
+@font-size-lg: 1.25rem;
+@font-size-xl: 1.5rem;
+@line-height: 1.5;
+
+// headings scale
+@h1-size: 2.5rem;
+@h2-size: 2rem;
+@h3-size: 1.75rem;
+@h4-size: 1.5rem;
+@h5-size: 1.25rem;
+@h6-size: 1rem;
+
+// -----------------------------
+// Spacing
+// -----------------------------
+@space-xs: 0.25rem;
+@space-sm: 0.5rem;
+@space-md: 1rem;
+@space-lg: 1.5rem;
+@space-xl: 2rem;
+
+// -----------------------------
+// Shadows & Borders
+// -----------------------------
+@border-radius: 4px;
+@box-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.1);
+@box-shadow-strong: 0 4px 6px rgba(0, 0, 0, 0.1);
+@border-width: 1px;
+@border-color: #e0e0e0;
+
+// =============================
+// USAGE
+// =============================
+// In your main less file:
+// @import "variables.less";
+// body { font-family: @font-base; background: @color-background; }
+// h1 { font-size: @h1-size; line-height: @line-height; }
+// .card { box-shadow: @box-shadow-light; border: @border-width solid @border-color; }
+// .container { padding: @space-md; }
+// `.respond-to(md)` { ... }

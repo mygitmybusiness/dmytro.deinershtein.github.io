@@ -22,6 +22,11 @@ module.exports = (env = {}, argv) => {
         module: {
             rules: [
                 {
+                    test: /\.(js|jsx)$/,
+                    exclude: /node_modules/,
+                    use: 'babel-loader',
+                },
+                {
                     test: /\.less$/i,
                     use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
                 },
@@ -59,6 +64,10 @@ module.exports = (env = {}, argv) => {
         resolve: {
             extensions: ['.js', '.jsx', '.less', '.css', '.json'],
             fallback: { process: false },
+            alias: {
+                react: 'preact/compat',
+                'react-dom': 'preact/compat',
+            },
         },
         devServer: {
             static: { directory: path.join(__dirname, 'dist') },

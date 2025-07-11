@@ -1,24 +1,19 @@
 // src/components/Header.js
-import { html } from '../utils/html.js';
+import Logo from './header/Logo';
+import Menu from './header/Menu';
 
-export default function Header() {
-  const el = document.createElement('header');
-  el.classList.add('site-header');
-
-  const title = 'Dmytro Deinershtein';
-  const menu = [
-    { label: 'Home',  href: '/'      },
-    { label: 'About', href: '/about' }
-  ];
-
-  el.innerHTML = html`
-    <h1>${title} <button class="oval-lg">Button</button></h1>
-    <nav>
-      ${menu.map(item => html`
-        <a href="${item.href}">${item.label}</a>
-      `).join('')}
-    </nav>
-  `;
-
-  return el;
+const Header = () => {
+  return (
+    <div className='header-wrapper'>
+      <div className="header-logo-wrapper">
+        <Logo type='text' />
+      </div>
+      <div className="header-menu">
+        <Menu />
+      </div>
+      <div className="header-links"></div>
+    </div>
+  )
 }
+
+export default Header;

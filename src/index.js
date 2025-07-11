@@ -1,12 +1,6 @@
 import './styles/main.less';
-import Layout from './components/Layout.js';
 
-// your page‐specific content:
-const page = document.createElement('main');
-page.innerHTML = `<p>Hello, world!</p>`;
+import { h, render } from 'preact';
+import App from './components/App';
 
-// wrap it:
-const app = Layout(page);
-
-// mount:
-document.getElementById('app').appendChild(app);
+render(<App />, document.getElementById('root'));
